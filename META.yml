@@ -25,8 +25,12 @@ no_index:
     - inc
     - t
 requires:
-  Exporter: 0
-  Readonly: 0
+  Class::Utils: 0.06
+  Encode: 0
+  Error::Pure: 0.22
+  PYX: 0.03
+  PYX::Utils: 0.03
+  Tag::Reader::Perl: 0.01
 resources:
   bugtracker: https://rt.cpan.org/Public/Dist/Display.html?Name=SGML-PYX
   homepage: https://github.com/tupinek/SGML-PYX

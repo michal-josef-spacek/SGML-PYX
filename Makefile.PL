@@ -11,8 +11,12 @@ author 'Michal Spacek <skim@cpan.org>';
 license 'bsd';
 name 'SGML-PYX';
 readme_from 'PYX.pm';
-requires 'Exporter' => 0;
-requires 'Readonly' => 0;
+requires 'Class::Utils' => 0.06;
+requires 'Encode' => 0;
+requires 'Error::Pure' => 0.22;
+requires 'Tag::Reader::Perl' => 0.01;
+requires 'PYX' => 0.03;
+requires 'PYX::Utils' => 0.03;
 resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 	'?Name=SGML-PYX';
 resources 'homepage' => 'https://github.com/tupinek/SGML-PYX';
