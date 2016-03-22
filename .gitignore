@@ -7,3 +7,4 @@ Makefile.old
 *.patch
 MYMETA.json
 MYMETA.yml
+cover_db/
