@@ -28,8 +28,10 @@ resources 'bugtracker' => 'https://rt.cpan.org/Public/Dist/Display.html'.
 	'?Name=SGML-PYX';
 resources 'homepage' => 'https://github.com/tupinek/SGML-PYX';
 resources 'repository' => 'git://github.com/tupinek/SGML-PYX';
+test_requires 'File::Object' => 0.07;
 test_requires 'Test::More' => 0;
 test_requires 'Test::NoWarnings' => 0;
+test_requires 'Test::Output' => 1.02;
 tests_recursive;
 version '0.01';
 
