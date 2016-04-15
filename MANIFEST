@@ -37,6 +37,7 @@ t/data/start_element5.sgml
 t/data/start_element6.sgml
 t/data/start_element7.sgml
 t/data/start_element8.sgml
+t/data/xml1.sgml
 t/SGML-PYX/01-use.t
 t/SGML-PYX/02-version.t
 t/SGML-PYX/03-new.t
@@ -46,5 +47,6 @@ t/SGML-PYX/06-parsefile-element.t
 t/SGML-PYX/07-parsefile-end_element.t
 t/SGML-PYX/08-parsefile-instruction.t
 t/SGML-PYX/09-parsefile-start_element.t
+t/SGML-PYX/10-parsefile-start_xml.t
 xt/SGML-PYX/01-pod_coverage.t
 xt/SGML-PYX/02-pod.t
