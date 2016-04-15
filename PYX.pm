@@ -77,9 +77,15 @@ sub parsefile {
 			shift @data;
 			my @attr;
 			foreach my $data (@data) {
-				my ($key, $val) = split m/\s*=\s*/ms, $data;
-				$val =~ s/^["\']*\s*//ms;
-				$val =~ s/\s*["\']*$//ms;
+				my ($key, $val);
+				if ($data =~ m/=/ms) {
+					($key, $val) = split m/\s*=\s*/ms, $data;
+					$val =~ s/^["\']*\s*//ms;
+					$val =~ s/\s*["\']*$//ms;
+				} else {
+					$key = $data;
+					$val = $data;
+				}
 				push @attr, $key, $val;
 			};
 			$self->{'output'}->(start_element($tag_type, @attr));
