@@ -1,9 +1,9 @@
 TODO
 ====
-3. Implementovat instrukci
 4. Implementovat doctype
 5. Implementovat cdata
-6.
+6. Odstranit ?xml, kdyz to stejne dela instrukce.
+7.
 
 Applied
 =======
@@ -12,4 +12,7 @@ OK [20160415] skim
 
 2. Testy
 Prvni verze.
+OK [20160415] skim
+
+3. Implementovat instrukci
 OK [20160415] skim

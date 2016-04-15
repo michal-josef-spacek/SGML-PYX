@@ -12,9 +12,6 @@ use Test::Output;
 # Directories.
 my $data_dir = File::Object->new->up->dir('data');
 
-SKIP: {
-	skip 'No support for instruction.', 2;
-
 # Test.
 my $obj = SGML::PYX->new;
 my $right_ret = <<'END';
@@ -42,4 +39,3 @@ stdout_is(
 	$right_ret,
 	'Test advanced instruction.',
 );
-}
