@@ -110,3 +110,134 @@ sub parsefile {
 }
 
 1;
+
+__END__
+
+=pod
+
+=encoding utf8
+
+=head1 NAME
+
+SGML::PYX - Convertor between SGML and PYX.
+
+=head1 SYNOPSIS
+
+ use SGML::PYX;
+ my $obj = SGML::PYX->new(%params);
+ $obj->parsefile($sgml_file);
+
+=head1 METHODS
+
+=over 8
+
+=item C<new(%params)>
+
+ Constructor.
+
+=over 8
+
+=item * C<output>
+
+ Output callback, which prints output PYX code.
+ Default value is subroutine:
+   my (@data) = @_;
+   print join "\n", map { encode_utf8($_) } @data;
+   print "\n";
+   return;
+
+=back
+
+=item C<parsefile($sgml_file)>
+
+ Parse input SGML file and convert to PYX output.
+ Returns undef.
+
+=back
+
+=head1 ERRORS
+
+ new():
+         From Class::Utils::set_params():
+                 Unknown parameter '%s'.
+
+ parsefile():
+         Unsupported tag type '%s'.
+
+=head1 EXAMPLE
+
+ # Pragmas.
+ use strict;
+ use warnings;
+
+ # Modules.
+ use File::Temp qw(tempfile);
+ use IO::Barf qw(barf);
+ use SGML::PYX;
+
+ # Input file.
+ my (undef, $input_file) = tempfile();
+ my $input = <<'END';
+ <html><head><title>Foo</title></head><body><div /></body></html>
+ END
+ barf($input_file, $input);
+
+ # Object.
+ my $obj = SGML::PYX->new;
+
+ # Parse file.
+ $obj->parsefile($input_file);
+
+ # Output:
+ # (html
+ # (head
+ # (title
+ # -Foo
+ # )title
+ # )head
+ # (body
+ # (div
+ # )div
+ # )body
+ # )html
+ # -\n
+
+=head1 DEPENDENCIES
+
+L<Class::Utils>,
+L<Encode>,
+L<Error::Pure>,
+L<Tag::Reader::Perl>,
+L<PYX>,
+L<PYX::Utils>.
+
+=head1 SEE ALSO
+
+=over
+
+=item L<Task::PYX>
+
+Install the PYX modules.
+
+=back
+
+=head1 REPOSITORY
+
+L<https://github.com/tupinek/SGML-PYX>
+
+=head1 AUTHOR
+
+Michal Špaček L<mailto:skim@cpan.org>
+
+L<http://skim.cz>
+
+=head1 LICENSE AND COPYRIGHT
+
+ © Michal Špaček 2015-2016
+ BSD 2-Clause License
+
+=head1 VERSION
+
+0.01
+
+=cut
