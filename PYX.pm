@@ -73,14 +73,13 @@ sub parsefile {
 			if ($data =~ s/\/$//ms) {
 				$end = 1;
 			}
-			# TODO Tohle je spatne.
-			my @data = split m/\s+/ms, $data;
+			my @data = split m/(?<=[^=])\s+(?!=)/ms, $data;
 			shift @data;
 			my @attr;
 			foreach my $data (@data) {
-				my ($key, $val) = split m/=/ms, $data;
-				$val =~ s/^["\']//ms;
-				$val =~ s/["\']$//ms;
+				my ($key, $val) = split m/\s*=\s*/ms, $data;
+				$val =~ s/^["\']*\s*//ms;
+				$val =~ s/\s*["\']*$//ms;
 				push @attr, $key, $val;
 			};
 			$self->{'output'}->(start_element($tag_type, @attr));
