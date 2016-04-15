@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 8;
+use Test::More 'tests' => 9;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -113,4 +113,19 @@ stdout_is(
 	},
 	$right_ret,
 	'Test start of element with attribute without value.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+AonClick javascript:window.open('/url', 'key', 'par1=val1,par2=val2'); return false;
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element8.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with Javascript attribute.',
 );
