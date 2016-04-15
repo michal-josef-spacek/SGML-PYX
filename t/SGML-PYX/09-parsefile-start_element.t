@@ -97,5 +97,5 @@ stdout_is(
 		return;
 	},
 	$right_ret,
-	'Test start of prefixed element with prefixed attribute.',
+	'Test start of element with attribute with extra spaces.',
 );
