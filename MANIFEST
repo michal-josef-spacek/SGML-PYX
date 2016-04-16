@@ -40,6 +40,7 @@ t/data/start_element5.sgml
 t/data/start_element6.sgml
 t/data/start_element7.sgml
 t/data/start_element8.sgml
+t/data/start_element9.sgml
 t/data/xml1.sgml
 t/SGML-PYX/01-use.t
 t/SGML-PYX/02-version.t

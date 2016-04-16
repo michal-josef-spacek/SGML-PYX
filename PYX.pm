@@ -76,6 +76,8 @@ sub parsefile {
 			if ($data =~ s/\/$//ms) {
 				$end = 1;
 			}
+			my $element = $data;
+			$element =~ s/^([^\s]+).*?$/$1/ms;
 			my @data = split m/(?<=[^=])\s+(?!=)/ms, $data;
 			shift @data;
 			my @attr;
@@ -91,9 +93,9 @@ sub parsefile {
 				}
 				push @attr, $key, $val;
 			};
-			$self->{'output'}->(start_element($tag_type, @attr));
+			$self->{'output'}->(start_element($element, @attr));
 			if ($end) {
-				$self->{'output'}->(end_element($tag_type));
+				$self->{'output'}->(end_element($element));
 			}
 
 		# Doctype.

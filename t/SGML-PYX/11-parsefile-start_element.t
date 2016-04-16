@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 9;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -128,4 +128,18 @@ stdout_is(
 	},
 	$right_ret,
 	'Test start of element with Javascript attribute.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(ELEMENT
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element9.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element writed in upper-case.',
 );
