@@ -62,8 +62,11 @@ sub parsefile {
 			$self->{'output'}->(comment($data));
 
 		# End of element.
-		} elsif ($tag_type =~ m/^\/(.*)$/ms) {
-			$self->{'output'}->(end_element($1));
+		} elsif ($tag_type =~ m/^\//ms) {
+			my $element = $data;
+			$element =~ s/^<\///ms;
+			$element =~ s/>$//ms;
+			$self->{'output'}->(end_element($element));
 
 		# Begin of element.
 		} elsif ($tag_type =~ m/^\w+/ms) {

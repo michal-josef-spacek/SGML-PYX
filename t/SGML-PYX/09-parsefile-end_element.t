@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 2;
+use Test::More 'tests' => 3;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -24,4 +24,17 @@ stdout_is(
 	},
 	$right_ret,
 	'Test end of element.',
+);
+
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+)ELEMENT
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('end_element2.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test end of element in upper-case.',
 );
