@@ -78,22 +78,8 @@ sub parsefile {
 			}
 			my $element = $data;
 			$element =~ s/^([^\s]+).*?$/$1/ms;
-			my @data = split m/(?<=[^=])\s+(?!=)/ms, $data;
-			shift @data;
-			my @attr;
-			foreach my $data (@data) {
-				my ($key, $val);
-				if ($data =~ m/=/ms) {
-					($key, $val) = split m/\s*=\s*/ms, $data;
-					$val =~ s/^["\']*\s*//ms;
-					$val =~ s/\s*["\']*$//ms;
-				} else {
-					$key = $data;
-					$val = $data;
-				}
-				push @attr, $key, $val;
-			};
-			$self->{'output'}->(start_element($element, @attr));
+			my @attrs = $self->_parse_attributes($data);
+			$self->{'output'}->(start_element($element, @attrs));
 			if ($end) {
 				$self->{'output'}->(end_element($element));
 			}
@@ -124,6 +110,28 @@ sub parsefile {
 	}
 
 	return;
+}
+
+# Parse attributes.
+# TODO Fix parsing.
+sub _parse_attributes {
+	my ($self, $data) = @_;
+	my @data = split m/(?<=[^=])\s+(?!=)/ms, $data;
+	shift @data;
+	my @attrs;
+	foreach my $data (@data) {
+		my ($key, $val);
+		if ($data =~ m/=/ms) {
+			($key, $val) = split m/\s*=\s*/ms, $data;
+			$val =~ s/^["\']*\s*//ms;
+			$val =~ s/\s*["\']*$//ms;
+		} else {
+			$key = $data;
+			$val = $data;
+		}
+		push @attrs, $key, $val;
+	}
+	return (@attrs);
 }
 
 1;
