@@ -76,8 +76,7 @@ sub parsefile {
 			if ($data =~ s/\/$//ms) {
 				$end = 1;
 			}
-			my $element = $data;
-			$element =~ s/^([^\s]+).*?$/$1/ms;
+			(my $element, $data) = ($data =~ m/^([^\s]+)\s*(.*?)$/ms);
 			my @attrs = $self->_parse_attributes($data);
 			$self->{'output'}->(start_element($element, @attrs));
 			if ($end) {
@@ -113,23 +112,22 @@ sub parsefile {
 }
 
 # Parse attributes.
-# TODO Fix parsing.
 sub _parse_attributes {
 	my ($self, $data) = @_;
-	my @data = split m/(?<=[^=])\s+(?!=)/ms, $data;
-	shift @data;
 	my @attrs;
-	foreach my $data (@data) {
-		my ($key, $val);
-		if ($data =~ m/=/ms) {
-			($key, $val) = split m/\s*=\s*/ms, $data;
-			$val =~ s/^["\']*\s*//ms;
-			$val =~ s/\s*["\']*$//ms;
+	while ($data) {
+		if ($data =~ m/^([\w:]+)\s*=\s*"(.+?)"\s*(.*?)$/ms
+			|| $data =~ m/^([\w:]+)\s*=\s*'(.+?)'\s*(.*?)$/ms) {
+
+			push @attrs, $1, $2;
+			$data = $3;
+		} elsif ($data =~ m/([\w:]+)\s*(.*?)$/ms) {
+			push @attrs, $1, $1;
+			$data = $2;
 		} else {
-			$key = $data;
-			$val = $data;
+			err 'Problem with attribute parsing.',
+				'data', $data;
 		}
-		push @attrs, $key, $val;
 	}
 	return (@attrs);
 }
@@ -188,6 +186,8 @@ SGML::PYX - Convertor between SGML and PYX.
 
  parsefile():
          Unsupported tag type '%s'.
+         Problem with attribute parsing.
+                 data: %s
 
 =head1 EXAMPLE
 

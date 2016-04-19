@@ -30,6 +30,8 @@ ERRORS
 
      parsefile():
              Unsupported tag type '%s'.
+             Problem with attribute parsing.
+                     data: %s
 
 EXAMPLE
      # Pragmas.
