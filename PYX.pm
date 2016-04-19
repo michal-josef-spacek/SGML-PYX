@@ -114,6 +114,7 @@ sub parsefile {
 # Parse attributes.
 sub _parse_attributes {
 	my ($self, $data) = @_;
+	my $original_data = $data;
 	my @attrs;
 	while ($data) {
 		if ($data =~ m/^([\w:]+)\s*=\s*"(.+?)"\s*(.*?)$/ms
@@ -126,7 +127,7 @@ sub _parse_attributes {
 			$data = $2;
 		} else {
 			err 'Problem with attribute parsing.',
-				'data', $data;
+				'data', $original_data;
 		}
 	}
 	return (@attrs);
