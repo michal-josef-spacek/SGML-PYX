@@ -144,3 +144,51 @@ stdout_is(
 	'Test start of element with attribute without value.',
 );
 
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Achecked checked
+Apar val
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element10.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with attribute without value.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Apar val
+Achecked checked
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element11.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with attribute without value.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Apar1 val1
+Achecked checked
+Apar2 val2
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element12.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with attribute without value.',
+);
