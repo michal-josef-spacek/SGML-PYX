@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 18;
+use Test::More 'tests' => 21;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -266,4 +266,49 @@ stdout_is(
 	},
 	$right_ret,
 	'Test start of element with blank attribute (").',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Apar 
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element18.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with blank attribute without quotes #1.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Apar 
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element19.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with blank attribute without quotes #2.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Apar 
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element20.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with blank attribute without quotes #3.',
 );
