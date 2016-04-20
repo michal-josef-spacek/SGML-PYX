@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 17;
+use Test::More 'tests' => 18;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -228,11 +228,25 @@ stdout_is(
 $obj = SGML::PYX->new;
 $right_ret = <<'END';
 (element
-Apar 
+Apar val
 END
 stdout_is(
 	sub {
 		$obj->parsefile($data_dir->file('start_element15.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test start of element with attribute without »\'« and »"«.',
+);
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Apar 
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element16.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -247,7 +261,7 @@ Apar
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element16.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element17.sgml')->s);
 		return;
 	},
 	$right_ret,

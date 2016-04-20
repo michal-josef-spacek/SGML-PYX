@@ -124,8 +124,8 @@ sub _parse_attributes {
 			# <example par='val'> or <example par = 'val'>
 			|| $data =~ m/^([_\w:][\.\-\w:]+)\s*=\s*'(.*?)'\s*(.*?)$/ms
 
-			# <example par=foo> or <example par =foo >
-			|| $data =~ m/^([_\w:][\.\-\w:]+)\s*=([^\s]+)\s*(.*?)$/ms) {
+			# <example par=foo> or <example par = foo >
+			|| $data =~ m/^([_\w:][\.\-\w:]+)\s*=\s*([^\s]+)\s*(.*?)$/ms) {
 
 			push @attrs, $1, $2;
 			$data = $3;
