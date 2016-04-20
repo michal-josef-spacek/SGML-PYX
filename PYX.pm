@@ -91,15 +91,10 @@ sub parsefile {
 		} elsif ($tag_type eq '![cdata[') {
 			# Nop.
 
-		# XML.
-		} elsif ($tag_type eq '?xml') {
-			my ($code) = $data =~ m/^<\?xml\s+(.*?)\s*\?>$/ms;
-			$self->{'output'}->(instruction('xml', $code));
-
 		# Instruction.
 		} elsif ($tag_type =~ m/^\?/ms) {
 			$data =~ s/^<\?//ms;
-			$data =~ s/\?>$//ms;
+			$data =~ s/\s*\?>$//ms;
 			my ($target, $code) = split m/\s+/ms, $data, 2;
 			$self->{'output'}->(instruction($target, $code));
 

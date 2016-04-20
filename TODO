@@ -2,7 +2,6 @@ TODO
 ====
 4. Implementovat doctype
 5. Implementovat cdata
-6. Odstranit ?xml, kdyz to stejne dela instrukce.
 7. Dodelat cover testy.
 8.
 
@@ -17,3 +16,6 @@ OK [20160415] skim
 
 3. Implementovat instrukci
 OK [20160415] skim
+
+6. Odstranit ?xml, kdyz to stejne dela instrukce.
+OK [20160420] skim
