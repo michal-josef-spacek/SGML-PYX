@@ -118,7 +118,9 @@ sub _parse_attributes {
 	my @attrs;
 	while ($data) {
 		if ($data =~ m/^([_\w:][\.\-\w:]+)\s*=\s*"(.+?)"\s*(.*?)$/ms
-			|| $data =~ m/^([_\w:][\.\-\w:]+)\s*=\s*'(.+?)'\s*(.*?)$/ms) {
+
+			|| $data =~ m/^([_\w:][\.\-\w:]+)\s*=\s*'(.+?)'\s*(.*?)$/ms
+			|| $data =~ m/^([_\w:][\.\-\w:]+)\s*=([^\s]+)\s*(.*?)$/ms) {
 
 			push @attrs, $1, $2;
 			$data = $3;
