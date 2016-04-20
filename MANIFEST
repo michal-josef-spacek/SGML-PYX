@@ -17,6 +17,7 @@ MANIFEST			This list of files
 META.yml
 PYX.pm
 README
+SIGNATURE
 t/data/cdata1.sgml
 t/data/cdata2.sgml
 t/data/char1.sgml
