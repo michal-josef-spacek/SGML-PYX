@@ -19,7 +19,7 @@ my $right_ret = <<'END';
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element1.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element01.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -34,7 +34,7 @@ Apar val
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element2.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element02.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -49,7 +49,7 @@ Apar val\nval
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element3.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element03.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -63,7 +63,7 @@ $right_ret = <<'END';
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element4.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element04.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -78,7 +78,7 @@ Aprefix:par val
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element5.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element05.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -93,7 +93,7 @@ Apar val
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element6.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element06.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -108,7 +108,7 @@ AonClick javascript:window.open('/url', 'key', 'par1=val1,par2=val2'); return fa
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element7.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element07.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -122,7 +122,7 @@ $right_ret = <<'END';
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element8.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element08.sgml')->s);
 		return;
 	},
 	$right_ret,
@@ -137,7 +137,7 @@ Achecked checked
 END
 stdout_is(
 	sub {
-		$obj->parsefile($data_dir->file('start_element9.sgml')->s);
+		$obj->parsefile($data_dir->file('start_element09.sgml')->s);
 		return;
 	},
 	$right_ret,
