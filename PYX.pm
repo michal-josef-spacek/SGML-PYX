@@ -13,7 +13,7 @@ use PYX qw(comment end_element char instruction start_element);
 use PYX::Utils qw(decode entity_decode);
 
 # Version.
-our $VERSION = 0.01;
+our $VERSION = 0.02;
 
 # Constructor.
 sub new {
@@ -275,6 +275,6 @@ L<http://skim.cz>
 
 =head1 VERSION
 
-0.01
+0.02
 
 =cut
