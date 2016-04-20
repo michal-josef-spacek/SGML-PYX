@@ -5,7 +5,7 @@ use warnings;
 # Modules.
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 2;
+use Test::More 'tests' => 3;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -14,8 +14,8 @@ my $data_dir = File::Object->new->up->dir('data');
 
 # Test.
 my $obj = SGML::PYX->new;
-# TODO Not implemented now.
 my $right_ret = <<'END';
+-<element />
 END
 stdout_is(
 	sub {
@@ -24,4 +24,18 @@ stdout_is(
 	},
 	$right_ret,
 	'Test single character data.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+-<element />
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('cdata2.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test single character data - lower case version.',
 );

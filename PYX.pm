@@ -89,7 +89,9 @@ sub parsefile {
 
 		# CData.
 		} elsif ($tag_type eq '![cdata[') {
-			# Nop.
+			$data =~ s/^<!\[[cC][dD][aA][tT][aA]\[//ms;
+			$data =~ s/\]\]>$//ms;
+			$self->{'output'}->(char(decode(entity_decode($data))));
 
 		# Instruction.
 		} elsif ($tag_type =~ m/^\?/ms) {

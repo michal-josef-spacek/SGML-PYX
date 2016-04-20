@@ -18,6 +18,7 @@ META.yml
 PYX.pm
 README
 t/data/cdata1.sgml
+t/data/cdata2.sgml
 t/data/char1.sgml
 t/data/char2.sgml
 t/data/comment1.sgml
