@@ -3,6 +3,7 @@
  - Fix Makefile.PL fails with no '.' in @INC.
  - Update Module::Install to 1.19 version.
  - Update author github username.
+ - Update author name.
 
 0.02 2016-04-20T17:04:58+02:00
  - Fix dependencies to PYX::Utils.
