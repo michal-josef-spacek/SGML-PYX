@@ -1,4 +1,4 @@
-0.03
+0.03 2020-04-23T16:09:11+02:00
  - Add bigger test for cdata.
  - Fix Makefile.PL fails with no '.' in @INC.
  - Improve LICENSE AND COPYRIGHT section in doc.
