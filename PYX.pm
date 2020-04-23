@@ -156,6 +156,7 @@ SGML::PYX - Convertor between SGML and PYX.
 =head1 SYNOPSIS
 
  use SGML::PYX;
+
  my $obj = SGML::PYX->new(%params);
  $obj->parsefile($sgml_file);
 
