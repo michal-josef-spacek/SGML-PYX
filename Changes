@@ -1,6 +1,7 @@
 0.03
  - Add bigger test for cdata.
  - Fix Makefile.PL fails with no '.' in @INC.
+ - Improve LICENSE AND COPYRIGHT section in doc.
  - Update Module::Install to 1.19 version.
  - Update author github username.
  - Update author name.
