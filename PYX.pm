@@ -260,7 +260,7 @@ Install the PYX modules.
 
 =head1 REPOSITORY
 
-L<https://github.com/tupinek/SGML-PYX>
+L<https://github.com/michal-josef-spacek/SGML-PYX>
 
 =head1 AUTHOR
 

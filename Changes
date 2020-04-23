@@ -1,6 +1,7 @@
 0.03
  - Add bigger test for cdata.
  - Update Module::Install to 1.19 version.
+ - Update author github username.
 
 0.02 2016-04-20T17:04:58+02:00
  - Fix dependencies to PYX::Utils.
