@@ -1,10 +1,8 @@
 package SGML::PYX;
 
-# Pragmas.
 use strict;
 use warnings;
 
-# Modules.
 use Class::Utils qw(set_params);
 use Encode qw(encode_utf8);
 use Error::Pure qw(err);
@@ -12,7 +10,6 @@ use Tag::Reader::Perl;
 use PYX qw(comment end_element char instruction start_element);
 use PYX::Utils qw(decode entity_decode);
 
-# Version.
 our $VERSION = 0.03;
 
 # Constructor.
@@ -203,11 +200,9 @@ SGML::PYX - Convertor between SGML and PYX.
 
 =head1 EXAMPLE
 
- # Pragmas.
  use strict;
  use warnings;
 
- # Modules.
  use File::Temp qw(tempfile);
  use IO::Barf qw(barf);
  use SGML::PYX;

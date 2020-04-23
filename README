@@ -34,11 +34,9 @@ ERRORS
                      data: %s
 
 EXAMPLE
-     # Pragmas.
      use strict;
      use warnings;
 
-     # Modules.
      use File::Temp qw(tempfile);
      use IO::Barf qw(barf);
      use SGML::PYX;
