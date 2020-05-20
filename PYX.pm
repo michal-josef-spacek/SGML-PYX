@@ -22,8 +22,10 @@ sub new {
 	# Output callback.
 	$self->{'output'} = sub {
 		my (@data) = @_;
+
 		print join "\n", map { encode_utf8($_) } @data;
 		print "\n";
+
 		return;
 	};
 
