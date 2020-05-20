@@ -108,6 +108,7 @@ sub parsefile {
 # Parse attributes.
 sub _parse_attributes {
 	my ($self, $data) = @_;
+
 	my $original_data = $data;
 	my @attrs;
 	while ($data) {
@@ -138,6 +139,7 @@ sub _parse_attributes {
 				'data', $original_data;
 		}
 	}
+
 	return (@attrs);
 }
 
