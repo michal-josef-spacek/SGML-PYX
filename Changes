@@ -1,4 +1,4 @@
-0.05
+0.05 2020-05-21T00:39:14+02:00
  - Add test for bad attribute parsing.
  - Fix bug with one character length attribute.
 
