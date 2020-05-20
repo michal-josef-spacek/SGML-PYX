@@ -1,9 +1,11 @@
 use strict;
 use warnings;
 
+use English;
+use Error::Pure::Utils qw(clean);
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 9;
+use Test::More 'tests' => 10;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -135,3 +137,11 @@ stdout_is(
 	$right_ret,
 	'Test element with attribute which has name only one character length.',
 );
+
+# Test.
+$obj = SGML::PYX->new;
+eval {
+	$obj->parsefile($data_dir->file('element9.sgml')->s);
+};
+is($EVAL_ERROR, "Problem with attribute parsing.\n", 'Bad attribute name.');
+clean();
