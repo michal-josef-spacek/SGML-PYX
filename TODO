@@ -3,7 +3,9 @@ TODO
 4. Implementovat doctype
 7. Dodelat cover testy.
 8. Srovnat s HTML::PYX::TokeParser.
-9.
+9. Testy t/data/element* mit jenom pro plny element, zbytek mit pod
+start_element.
+10.
 
 Applied
 =======
