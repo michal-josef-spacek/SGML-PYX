@@ -10,7 +10,7 @@ use Tag::Reader::Perl;
 use PYX qw(comment end_element char instruction start_element);
 use PYX::Utils qw(decode entity_decode);
 
-our $VERSION = 0.06;
+our $VERSION = 0.07;
 
 # Constructor.
 sub new {
@@ -279,6 +279,6 @@ BSD 2-Clause License
 
 =head1 VERSION
 
-0.06
+0.07
 
 =cut
