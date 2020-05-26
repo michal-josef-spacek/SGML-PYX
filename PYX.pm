@@ -75,7 +75,7 @@ sub parsefile {
 			if ($data =~ s/\/$//ms) {
 				$end = 1;
 			}
-			(my $element, $data) = ($data =~ m/^([^\s]+)\s*(.*?)$/ms);
+			(my $element, $data) = ($data =~ m/^([^\s]+)\s*(.*)$/ms);
 			my @attrs = $self->_parse_attributes($data);
 			$self->{'output'}->(start_element($element, @attrs));
 			if ($end) {
