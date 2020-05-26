@@ -116,13 +116,13 @@ sub _parse_attributes {
 	while ($data) {
 
 		# <example par="val"> or <example par = "val">
-		if ($data =~ m/^([_\w:][\.\-\w:]*)\s*=\s*"(.*?)"\s*(.*?)$/ms
+		if ($data =~ m/^([_\w:][\.\-\w:]*)\s*=\s*"(.*?)"\s*(.*)$/ms
 
 			# <example par='val'> or <example par = 'val'>
-			|| $data =~ m/^([_\w:][\.\-\w:]*)\s*=\s*'(.*?)'\s*(.*?)$/ms
+			|| $data =~ m/^([_\w:][\.\-\w:]*)\s*=\s*'(.*?)'\s*(.*)$/ms
 
 			# <example par=foo> or <example par = foo >.
-			|| $data =~ m/^([_\w:][\.\-\w:]*)\s*=\s*([^\s]+)\s*(.*?)$/ms) {
+			|| $data =~ m/^([_\w:][\.\-\w:]*)\s*=\s*([^\s]+)\s*(.*)$/ms) {
 
 			push @attrs, $1, $2;
 			$data = $3;
@@ -133,7 +133,7 @@ sub _parse_attributes {
 			$data = '';
 
 		# <example checked>
-		} elsif ($data =~ m/^([_\w:][\.\-\w:]*)\s*(.*?)$/ms) {
+		} elsif ($data =~ m/^([_\w:][\.\-\w:]*)\s*(.*)$/ms) {
 			push @attrs, $1, $1;
 			$data = $2;
 		} else {
