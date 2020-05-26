@@ -3,8 +3,6 @@ TODO
 4. Implementovat doctype
 7. Dodelat cover testy.
 8. Srovnat s HTML::PYX::TokeParser.
-9. Testy t/data/element* mit jenom pro plny element, zbytek mit pod
-start_element.
 10.
 
 Applied
@@ -24,3 +22,7 @@ OK [20160420] skim
 
 5. Implementovat cdata
 OK [20160420] skim
+
+9. Testy t/data/element* mit jenom pro plny element, zbytek mit pod
+start_element.
+OK [20200527] skim

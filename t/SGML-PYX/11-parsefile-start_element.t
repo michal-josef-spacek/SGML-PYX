@@ -1,9 +1,11 @@
 use strict;
 use warnings;
 
+use English;
+use Error::Pure::Utils qw(clean);
 use File::Object;
 use SGML::PYX;
-use Test::More 'tests' => 23;
+use Test::More 'tests' => 26;
 use Test::NoWarnings;
 use Test::Output;
 
@@ -342,4 +344,42 @@ stdout_is(
 	},
 	$right_ret,
 	'Test start of element with multiline attributes.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+eval {
+	$obj->parsefile($data_dir->file('start_element23.sgml')->s);
+};
+is($EVAL_ERROR, "Problem with attribute parsing.\n", 'Bad attribute name.');
+clean();
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Aa value
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element24.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test element with attribute which has name only one character length.',
+);
+
+# Test.
+$obj = SGML::PYX->new;
+$right_ret = <<'END';
+(element
+Aattr val val
+END
+stdout_is(
+	sub {
+		$obj->parsefile($data_dir->file('start_element25.sgml')->s);
+		return;
+	},
+	$right_ret,
+	'Test element with attribute which has value with space.',
 );
