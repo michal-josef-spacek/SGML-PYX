@@ -1,5 +1,6 @@
 0.07
  - Fix bugtracker.
+ - Fix processing of UTF8 attribute value.
  - Improve source code in doc.
  - Update copyright years.
 

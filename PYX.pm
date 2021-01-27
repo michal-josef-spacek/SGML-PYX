@@ -4,7 +4,7 @@ use strict;
 use warnings;
 
 use Class::Utils qw(set_params);
-use Encode qw(encode_utf8);
+use Encode qw(decode_utf8 encode_utf8);
 use Error::Pure qw(err);
 use Tag::Reader::Perl;
 use PYX qw(comment end_element char instruction start_element);
@@ -49,6 +49,9 @@ sub parsefile {
 	# Process.
 	while (my ($data, $tag_type, $line, $column)
 		= $self->{'_tag_reader'}->gettoken) {
+
+		# Decode data to internal form.
+		$data = decode_utf8($data);
 
 		# Data.
 		if ($tag_type eq '!data') {
