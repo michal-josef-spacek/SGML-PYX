@@ -180,10 +180,10 @@ Returns instance of object.
 
  Output callback, which prints output PYX code.
  Default value is subroutine:
-   my (@data) = @_;
-   print join "\n", map { encode_utf8($_) } @data;
-   print "\n";
-   return;
+         my (@data) = @_;
+         print join "\n", map { encode_utf8($_) } @data;
+         print "\n";
+         return;
 
 =back
 
