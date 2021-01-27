@@ -3,7 +3,8 @@ TODO
 4. Implementovat doctype
 7. Dodelat cover testy.
 8. Srovnat s HTML::PYX::TokeParser.
-10.
+10. Jde vyresit problem s '<' v character data? Preskakovan test t/data/char3.sgml
+11.
 
 Applied
 =======
